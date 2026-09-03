@@ -1,0 +1,45 @@
+<app-encabezado
+  titulo="Saludador"
+  subtitulo="Página principal"
+  color="primary">
+</app-encabezado>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <ion-item>
+    <ion-input
+      label="Nombre"
+      labelPlacement="floating"
+      [(ngModel)]="nombre">
+    </ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input
+      label="Ciudad"
+      labelPlacement="floating"
+      [(ngModel)]="ciudad">
+    </ion-input>
+  </ion-item>
+
+  <ion-button
+    expand="block"
+    (click)="saludar()"
+    [disabled]="nombre.trim() === ''">
+    Saludar
+  </ion-button>
+
+  <h2 *ngIf="mensaje">
+    {{ mensaje }}
+  </h2>
+
+  <ion-button
+    expand="block"
+    routerLink="/home/ayuda">
+    Ver ayuda
+  </ion-button>
+
+  <hr>
+
+<router-outlet></router-outlet>
+</ion-content>

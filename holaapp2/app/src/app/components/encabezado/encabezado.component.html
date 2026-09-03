@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-toolbar [color]="color">
+
+    <ion-title>
+      {{ titulo }}
+
+      <div *ngIf="subtitulo" style="font-size: 12px;">
+        {{ subtitulo }}
+      </div>
+    </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button
+        *ngIf="mostrarAcerca"
+        routerLink="/acerca">
+        Acerca de
+      </ion-button>
+    </ion-buttons>
+
+  </ion-toolbar>
+</ion-header>
