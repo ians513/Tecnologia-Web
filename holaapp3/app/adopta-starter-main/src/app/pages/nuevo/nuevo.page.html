@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" text="Volver"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Nuevo perrito</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form #formulario="ngForm" (ngSubmit)="guardar()">
+    <ion-item>
+      <ion-input label="Nombre" labelPlacement="stacked" name="nombre" [(ngModel)]="perro.nombre" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Raza" labelPlacement="stacked" name="raza" [(ngModel)]="perro.raza" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Edad (ej: 2 años)" labelPlacement="stacked" name="edad" [(ngModel)]="perro.edad" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-select label="Sexo" labelPlacement="stacked" name="sexo" [(ngModel)]="perro.sexo" required>
+        <ion-select-option value="Macho">Macho</ion-select-option>
+        <ion-select-option value="Hembra">Hembra</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-select label="Tamaño" labelPlacement="stacked" name="tamano" [(ngModel)]="perro.tamano" required>
+        <ion-select-option value="Pequeño">Pequeño</ion-select-option>
+        <ion-select-option value="Mediano">Mediano</ion-select-option>
+        <ion-select-option value="Grande">Grande</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-input label="URL de la foto" labelPlacement="stacked" type="url" name="foto" [(ngModel)]="perro.foto" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-textarea label="Descripción" labelPlacement="stacked" name="descripcion" [(ngModel)]="perro.descripcion" required></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-checkbox name="vacunada" [(ngModel)]="perro.vacunada">Está vacunado</ion-checkbox>
+    </ion-item>
+
+    <ion-button type="submit" expand="block" [disabled]="formulario.invalid">
+      Registrar perrito
+    </ion-button>
+  </form>
+</ion-content>

@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/" text="Volver"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Detalle</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  @if (perro) {
+    <ion-card>
+      <img [src]="perro.foto" [alt]="'Foto de ' + perro.nombre" />
+      <ion-card-header>
+        <ion-card-title>{{ perro.nombre }}</ion-card-title>
+        <ion-card-subtitle>{{ perro.raza }} · {{ perro.edad }}</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-badge [color]="perro.adoptado ? 'medium' : 'success'">
+          {{ perro.adoptado ? 'Adoptado' : 'Disponible' }}
+        </ion-badge>
+        <p><strong>Sexo:</strong> {{ perro.sexo }}</p>
+        <p><strong>Tamaño:</strong> {{ perro.tamano }}</p>
+        <p><strong>Vacunado:</strong> {{ perro.vacunada ? 'Sí' : 'No' }}</p>
+        <p>{{ perro.descripcion }}</p>
+
+        @if (!perro.adoptado) {
+          <ion-button expand="block" (click)="confirmarAdopcion()">
+            Confirmar adopción
+          </ion-button>
+        } @else {
+          <p class="mensaje">¡Adopción confirmada!</p>
+        }
+
+        <ion-button expand="block" fill="outline" (click)="volverAlInicio()">
+          Volver al menú principal
+        </ion-button>
+      </ion-card-content>
+    </ion-card>
+  } @else {
+    <p>No se encontró el perrito.</p>
+    <ion-button expand="block" (click)="volverAlInicio()">
+      Volver al menú principal
+    </ion-button>
+  }
+</ion-content>

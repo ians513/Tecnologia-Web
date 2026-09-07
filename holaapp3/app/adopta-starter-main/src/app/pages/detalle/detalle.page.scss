@@ -1,0 +1,17 @@
+ion-card {
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+img {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+}
+
+.mensaje {
+  color: var(--ion-color-success);
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}

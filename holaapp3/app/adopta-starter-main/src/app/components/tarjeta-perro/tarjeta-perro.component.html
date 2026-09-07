@@ -1,0 +1,16 @@
+<ion-card>
+  <div class="estado">
+    <ion-badge [color]="perro.adoptado ? 'medium' : 'success'">
+      {{ perro.adoptado ? 'Adoptado' : 'Disponible' }}
+    </ion-badge>
+  </div>
+  <img [src]="perro.foto" [alt]="'Foto de ' + perro.nombre" />
+  <ion-card-header>
+    <ion-card-subtitle>{{ perro.raza }} · {{ perro.edad }}</ion-card-subtitle>
+    <ion-card-title>{{ perro.nombre }}</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <p>{{ perro.sexo }} · Tamaño {{ perro.tamano }}</p>
+    <p>{{ perro.descripcion }}</p>
+  </ion-card-content>
+</ion-card>

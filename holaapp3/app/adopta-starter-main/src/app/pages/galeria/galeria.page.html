@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Adopta perritos</ion-title>
+    <ion-button slot="end" fill="clear" (click)="agregarPerrito()">
+      Agregar perrito
+    </ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-grid>
+    <ion-row>
+      @for (perro of perros; track perro.id) {
+        <ion-col size="12" size-md="6" size-lg="4">
+          <app-tarjeta-perro [perro]="perro"></app-tarjeta-perro>
+          <ion-button
+            expand="block"
+            (click)="adoptar(perro.id)"
+            [disabled]="perro.adoptado">
+            {{ perro.adoptado ? 'Adoptado' : 'Adoptar' }}
+          </ion-button>
+        </ion-col>
+      } @empty {
+        <p class="vacio">No hay perritos registrados.</p>
+      }
+    </ion-row>
+  </ion-grid>
+</ion-content>
